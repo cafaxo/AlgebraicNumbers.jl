@@ -84,7 +84,7 @@ function composed_product(p::Vector{BigInt},q::Vector{BigInt})
 	pq = from_newton(to_array(hadm(a,b,R)))
 
 	# convert to integer and return
-	return map(numerator, pq*lcm(map(denominator, pq)))
+	return BigInt.(map(numerator, pq*lcm(map(denominator, pq))))
 end
 
 # composed sum of two polynomials, given as coeffs p and q
@@ -104,5 +104,5 @@ function composed_sum(p::Vector{BigInt},q::Vector{BigInt})
 	pq = from_newton(to_array(hadm(m,eei,R)))
 
 	# convert to integer and return
-	return map(numerator, pq*lcm(map(denominator, pq)))
+	return BigInt.(map(numerator, pq*lcm(map(denominator, pq))))
 end
